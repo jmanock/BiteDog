@@ -1,7 +1,8 @@
 import React from 'react';
+import HomePage from './Home';
 
 export const Home = () => (
-  <h1>Home Page</h1>
+  <HomePage />
 );
 
 export const About = () => (
