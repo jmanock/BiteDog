@@ -1,6 +1,6 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import {Home, About, Questions, Privacy, Terms, Form} from './PageSetUp';
+import {Home, About, Questions, Privacy, Terms, Quote} from './PageSetUp';
 
 export const Main = () => (
   <Switch>
@@ -9,6 +9,6 @@ export const Main = () => (
     <Route exact path='/Questions' component={Questions} />
     <Route exact path='/Privacy' component={Privacy} />
     <Route exact path='/Terms' component={Terms} />
-    <Route exact path='/Form' component={Form} />
+    <Route exact path='/Quote' component={Quote} />
   </Switch>
 );

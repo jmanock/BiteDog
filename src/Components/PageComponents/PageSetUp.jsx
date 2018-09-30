@@ -20,6 +20,6 @@ export const Terms = () => (
   <h1>Terms Page</h1>
 );
 
-export const Form = () => (
-  <h1>Form Page</h1>
+export const Quote = () => (
+  <h1>New Quote Page</h1>
 );
