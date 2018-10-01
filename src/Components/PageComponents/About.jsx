@@ -18,7 +18,15 @@ class AboutPage extends Component{
         <p>
           The program initially began in 2012 available in a limited number of states. Today <span className='title-name'>Canine Liability</span> coverarge is available in all states except Alaska. The policy has also been redesigned to offer much broader coverage with no deductible. You can request a quote by filling out an online application and emailing it to <a href='mailto:dturner@deaninsuranceai.com'>dturner@deaninsuranceai.com</a>, or by completing the lead form on this page for more information.
         </p>
+        <p>
+          The policy was originally sold through a subsidiary of her agency Federation of Insured Dog Owners aka F.I.D.O. and is now sold through Debbie's agency, Dean Insurance Agency, Inc. Dean Insurance was established in 1994and provides a broad range of insurance products and services to personal and business customers.
+        </p>
+        <p>
+          Debbie has recently been nominated a finalist for Woman of the Year in the Pet Industry Network.
+        </p>
       </div>
-    )
+    );
   }
-}
+};
+
+export default AboutPage;

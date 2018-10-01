@@ -1,12 +1,13 @@
 import React from 'react';
 import HomePage from './Home';
+import AboutPage from './About';
 
 export const Home = () => (
   <HomePage />
 );
 
 export const About = () => (
-  <h1>About Page</h1>
+  <AboutPage />
 );
 
 export const Questions = () => (
