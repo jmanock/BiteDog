@@ -1,6 +1,7 @@
 import React from 'react';
 import HomePage from './Home';
 import AboutPage from './About';
+import PrivacyPage from './Privacy';
 
 export const Home = () => (
   <HomePage />
@@ -15,7 +16,7 @@ export const Questions = () => (
 );
 
 export const Privacy = () => (
-  <h1>Privacy Page</h1>
+  <PrivacyPage />
 );
 
 export const Terms = () => (
