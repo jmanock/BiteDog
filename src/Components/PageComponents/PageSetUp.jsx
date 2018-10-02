@@ -3,6 +3,7 @@ import HomePage from './Home';
 import AboutPage from './About';
 import PrivacyPage from './Privacy';
 import QuestionsPage from './Questions';
+import TermsPage from './Terms';
 
 export const Home = () => (
   <HomePage />
@@ -21,7 +22,7 @@ export const Privacy = () => (
 );
 
 export const Terms = () => (
-  <h1>Terms Page</h1>
+  <TermsPage />
 );
 
 export const Quote = () => (

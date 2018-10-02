@@ -14,7 +14,7 @@ class QuestionsPage extends Component{
           <li><a href='#behaviorHistory'>What if my Dog has a behavior history or has been labeled dangerous by a governing body?</a></li>
           <li><a href='#dogComesWork'>I need coverage because my dog works with me or comes to work with me.</a></li>
           <li><a href='#dogIntegral'>I need coverage because my dog is integral or involved in my work.</a></li>
-          <li><a href='#additionalInsured'>What is an "AdditionalInsured"?</a></li>
+          <li><a href='#additionalInsured'>What is an "Additional Insured"?</a></li>
           <li><a href='#additionalInsuredDo'>What does the "Additional Insured" endorsement do?</a></li>
           <li><a href='#diligentEffortForm'>Explain Diligent Effort Form or Surplus Lines disclosure statement.</a></li>
           <li><a href='#changesDuringYear'>What if I need to make changes during the year?</a></li>
