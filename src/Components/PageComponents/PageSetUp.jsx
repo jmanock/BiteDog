@@ -4,6 +4,7 @@ import AboutPage from './About';
 import PrivacyPage from './Privacy';
 import QuestionsPage from './Questions';
 import TermsPage from './Terms';
+import FormPage from './Form';
 
 export const Home = () => (
   <HomePage />
@@ -26,5 +27,5 @@ export const Terms = () => (
 );
 
 export const Quote = () => (
-  <h1>New Quote Page</h1>
+  <FormPage />
 );
