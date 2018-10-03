@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Input from '../FormComponents/Input';
 import Select from '../FormComponents/Select';
 import Button from '../FormComponents/Button';
+import States from '../Containers/States';
 
 class FormPage extends Component{
   constructor(props){
@@ -14,7 +15,7 @@ class FormPage extends Component{
         skills:[],
         about:''
       },
-      genderOptions:['Male', 'Female', 'Other'],
+      genderOptions:States,
       skillOptions:['Programing', 'Sex', 'Stealing']
     }
     this.handleFullName = this.handleFullName.bind(this);
