@@ -5,6 +5,7 @@ import PrivacyPage from './Privacy';
 import QuestionsPage from './Questions';
 import TermsPage from './Terms';
 import FormPage from './Form';
+import RaterPage from './Rater';
 
 export const Home = () => (
   <HomePage />
@@ -28,4 +29,8 @@ export const Terms = () => (
 
 export const Quote = () => (
   <FormPage />
+);
+
+export const Rater = () =>(
+  <RaterPage />
 );

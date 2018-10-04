@@ -4,7 +4,7 @@ const Select = (props) =>{
   return(
     <div className='form-group'>
       <label className='form-label'>{props.title}</label>
-      <select id={props.name} name={props.name} value={props.value} onChange={props.handleChange} className='form-control'>
+      <select id={props.name} name={props.name} value={props.value} onChange={props.handleChange} className='form-control form-control-sm'>
         <option value='' disabled>{props.placeholder}</option>
         {props.options.map(option => {
           return(

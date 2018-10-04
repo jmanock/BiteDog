@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import Input from '../FormComponents/Input';
 import Select from '../FormComponents/Select';
 import Button from '../FormComponents/Button';
@@ -68,8 +69,8 @@ class FormPage extends Component{
       <div className='container'>
         <form>
           <div className='row'>
-            <div className='col-sm-9'>
-              <Input type={'text'} title={'Your Email:'} name={'email'} value={this.state.newUser.email} placeholder={'Enter your Email Address'} handleChange={this.handleInput} />
+            <div className='col-sm-8'>
+              <Input type={'text'} title={'Your Email:'} name={'email'} value={this.state.newUser.email} placeholder={'Enter your Email Address'} handleChange={this.handleInput}/>
 
               <Input type={'text'} title={"Dog's Name:"} name={'dogsName'} value={this.state.newUser.dogsName} placeholder={"Enter your dog's name"} handleChange={this.handleInput} />
 
@@ -122,16 +123,17 @@ class FormPage extends Component{
               <Select title={'Is this dog in a foster arrangement where the owner has been deployed:'} name={'deployed'} options={this.state.ynOptions} value={this.state.newUser.deployed} placeholder={'Please Choose...'} handleChange={this.handleInput} />
 
               <Select title={'Is this dog in your home with the intent that he/she will be adopted:'} name={'adopted'} options={this.state.ynOptions} value={this.state.newUser.adopted} placeholder={'Please Choose...'} handleChange={this.handleInput} />
+              <Link to='/Rater'>
+                <Button type={'primary'} title={'Continue'} />
+              </Link>
 
-
-              <Button type={'secondary'} title={'Continue'}/>
             </div>
           </div>
 
         </form>
       </div>
 
-    )
+    );
   }
 }
 
