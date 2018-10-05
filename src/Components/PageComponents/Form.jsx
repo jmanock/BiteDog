@@ -49,7 +49,15 @@ class FormPage extends Component{
 
               <Input type={'number'} title={'What Age is this dog:'} name={'age'} value={this.state.newUser.age} placeholder={"Enter dog's age"} handleChange={this.handleInput} />
 
-              <Input type={'number'} title={'What is the Weight of this dog:'} name={'weight'} value={this.state.newUser.weight} placeholder={"Enter dog's weight"} handleChange={this.handleInput} />
+              <div className='form-group'>
+                <label className='form-control-label'>What is the Weight of this dog:</label>
+                <div className='input-group'>
+                  <input type='number' className='form-control' value={this.state.newUser.weight} placeholder="Enter dog's weight" aria-label='Dogs Weight' aira-describeby='basic' onChange={this.handleInput} />
+                  <div className='input-group-append'>
+                    <span className='input-group-text' id='basic'>LBs</span>
+                  </div>
+                </div>
+              </div>
 
               <Input type={'text'} title={'What Color is this dog:'} name={'color'} value={this.state.newUser.color} placeholder={"Enter the dog's color"} handleChange={this.handleInput} />
 
@@ -96,7 +104,13 @@ class FormPage extends Component{
               <Select title={'Is this dog in a foster arrangement where the owner has been deployed:'} name={'deployed'} options={this.state.ynOptions} value={this.state.newUser.deployed} placeholder={'Please Choose...'} handleChange={this.handleInput} />
 
               <Select title={'Is this dog in your home with the intent that he/she will be adopted:'} name={'adopted'} options={this.state.ynOptions} value={this.state.newUser.adopted} placeholder={'Please Choose...'} handleChange={this.handleInput} />
-              <Button>Try</Button>
+
+              <Link to={{
+                  pathname:'/Rater',
+                  component:{Rater}
+                }}>
+                <Button>Try</Button>
+              </Link>
 
             </div>
           </div>
