@@ -5,59 +5,32 @@ import Select from '../FormComponents/Select';
 import Button from '../FormComponents/Button';
 import States from '../Containers/States';
 import Breeds from '../Containers/Breeds';
+import firebase from '../Firebase/Firebase';
 
 class FormPage extends Component{
   constructor(props){
     super(props);
     this.state = {
       newUser:{
-        email:'',
-        dogsName:'',
-        age:'',
-        weight:'',
-        color:'',
-        bathroom:'',
-        breed:'',
-        state:'',
-        children:'',
-        abuse:'',
-        doesBreed:'',
-        area:'',
-        sleep:'',
-        dogsInHome:'',
-        adopted:'',
-        deployed:'',
-        animalServices:'',
-        animalInjury:'',
-        humanInjury:'',
-        dogParks:'',
-        integral:'',
-        work:'',
-        training:'',
-        reproductive:'',
-        gender:'',
-        vaccinations:'',
-        veterinarian:''
+        email:'', dogsName:'', age:'', weight:'', color:'', bathroom:'', breed:'', state:'', children:'', abuse:'', doesBreed:'', area:'', sleep:'', dogsInHome:'', adopted:'', deployed:'', animalServices:'', animalInjury:'', humanInjury:'', dogParks:'', integral:'', work:'', training:'', reproductive:'', gender:'', vaccinations:'', veterinarian:''
       },
       stateOptions:States,
       breedOptions:Breeds,
       ynOptions:['Yes', 'No']
     }
-    this.handleFullName = this.handleFullName.bind(this);
-    this.handleAge = this.handleAge.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
   }
-  handleFullName(e){
-    let value = e.target.value;
-    this.setState(prevState => ({newUser:
-    {...prevState.newUser, name:value}
-  }),() => console.log(this.state.newUser));
+
+  handleSubmit(e){
+    e.preventDefault();
+    const itemsRef = firebase.database().ref('NewUser');
+    const questions = {
+      email:this.state.newUser.email, dogsName:this.state.newUser.dogsName, age:this.state.newUser.age, weight:this.state.newUser.weight, color:this.state.newUser.color, bathroom:this.state.newUser.bathroom, breed:this.state.newUser.breed, state:this.state.newUser.state, children:this.state.newUser.children, abuse:this.state.newUser.abuse, doesBreed:this.state.newUser.doesBreed, area:this.state.newUser.area, sleep:this.state.newUser.sleep, dogsInHome:this.state.newUser.dogsInHome, adopted:this.state.newUser.adopted, deployed:this.state.newUser.deployed, animalServices:this.state.newUser.animalServices, animalInjury:this.state.newUser.animalInjury, humanInjury:this.state.newUser.humanInjury, dogParks:this.state.newUser.dogParks, integral:this.state.newUser.integral, work:this.state.newUser.work, training:this.state.newUser.training, reproductive:this.state.newUser.reproductive, gender:this.state.newUser.gender, vaccinations:this.state.newUser.vaccinations, veterinarian:this.state.newUser.veterinarian
+    }
+    itemsRef.push(questions);
   }
-  handleAge(e){
-    let value = e.target.value;
-    this.setState(prevState => ({newUser:{...prevState.newUser, age:value}
-    }),() => console.log(this.state.newUser));
-  }
+
   handleInput(e){
     let value = e.target.value;
     let name = e.target.name;
@@ -67,7 +40,7 @@ class FormPage extends Component{
   render(){
     return(
       <div className='container'>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div className='row'>
             <div className='col-sm-8'>
               <Input type={'text'} title={'Your Email:'} name={'email'} value={this.state.newUser.email} placeholder={'Enter your Email Address'} handleChange={this.handleInput}/>
@@ -123,9 +96,7 @@ class FormPage extends Component{
               <Select title={'Is this dog in a foster arrangement where the owner has been deployed:'} name={'deployed'} options={this.state.ynOptions} value={this.state.newUser.deployed} placeholder={'Please Choose...'} handleChange={this.handleInput} />
 
               <Select title={'Is this dog in your home with the intent that he/she will be adopted:'} name={'adopted'} options={this.state.ynOptions} value={this.state.newUser.adopted} placeholder={'Please Choose...'} handleChange={this.handleInput} />
-              <Link to='/Rater'>
-                <Button type={'primary'} title={'Continue'} />
-              </Link>
+              <Button>Try</Button>
 
             </div>
           </div>
