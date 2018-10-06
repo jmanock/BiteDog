@@ -10,14 +10,40 @@ import firebase from '../Firebase/Firebase';
 class FormPage extends Component{
   constructor(props){
     super(props);
+
     this.state = {
       newUser:{
-        email:'', dogsName:'', age:'', weight:'', color:'', bathroom:'', breed:'', state:'', children:'', abuse:'', doesBreed:'', area:'', sleep:'', dogsInHome:'', adopted:'', deployed:'', animalServices:'', animalInjury:'', humanInjury:'', dogParks:'', integral:'', work:'', training:'', reproductive:'', gender:'', vaccinations:'', veterinarian:''
+        email:'',
+        dogsName:'',
+        age:'',
+        weight:'',
+        color:'',
+        bathroom:'',
+        breed:'',
+        state:'',
+        children:'',
+        abuse:'',
+        doesBreed:'',
+        area:'',
+        sleep:'',
+        dogsInHome:'',
+        adopted:'',
+        deployed:'',
+        animalServices:'',
+        humanInjury:'',
+        dogParks:'',
+        integral:'',
+        training:'',
+        reproductive:'',
+        gender:'',
+        vaccinations:'',
+        veterinarian:''
       },
       stateOptions:States,
       breedOptions:Breeds,
       ynOptions:['Yes', 'No']
     }
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
   }
@@ -26,7 +52,32 @@ class FormPage extends Component{
     e.preventDefault();
     const itemsRef = firebase.database().ref('NewUser');
     const questions = {
-      email:this.state.newUser.email, dogsName:this.state.newUser.dogsName, age:this.state.newUser.age, weight:this.state.newUser.weight, color:this.state.newUser.color, bathroom:this.state.newUser.bathroom, breed:this.state.newUser.breed, state:this.state.newUser.state, children:this.state.newUser.children, abuse:this.state.newUser.abuse, doesBreed:this.state.newUser.doesBreed, area:this.state.newUser.area, sleep:this.state.newUser.sleep, dogsInHome:this.state.newUser.dogsInHome, adopted:this.state.newUser.adopted, deployed:this.state.newUser.deployed, animalServices:this.state.newUser.animalServices, animalInjury:this.state.newUser.animalInjury, humanInjury:this.state.newUser.humanInjury, dogParks:this.state.newUser.dogParks, integral:this.state.newUser.integral, work:this.state.newUser.work, training:this.state.newUser.training, reproductive:this.state.newUser.reproductive, gender:this.state.newUser.gender, vaccinations:this.state.newUser.vaccinations, veterinarian:this.state.newUser.veterinarian
+      email:this.state.newUser.email,
+      dogsName:this.state.newUser.dogsName,
+      age:this.state.newUser.age,
+      weight:this.state.newUser.weight,
+      color:this.state.newUser.color,
+      bathroom:this.state.newUser.bathroom,
+      breed:this.state.newUser.breed,
+      state:this.state.newUser.state,
+      children:this.state.newUser.children,
+      abuse:this.state.newUser.abuse,
+      doesBreed:this.state.newUser.doesBreed,
+      area:this.state.newUser.area,
+      sleep:this.state.newUser.sleep,
+      dogsInHome:this.state.newUser.dogsInHome,
+      adopted:this.state.newUser.adopted,
+      deployed:this.state.newUser.deployed,
+      animalServices:this.state.newUser.animalServices,
+      animalInjury:this.state.newUser.animalInjury,
+      humanInjury:this.state.newUser.humanInjury,
+      dogParks:this.state.newUser.dogParks,
+      itegral:this.state.newUser.itegral,
+      training:this.state.newUser.training,
+      reproductive:this.state.newUser.reproductive,
+      gender:this.state.newUser.gender,
+      vaccinations:this.state.newUser.vaccinations,
+      veterinarian:this.state.newUser.veterinarian
     }
     itemsRef.push(questions);
   }
@@ -34,36 +85,38 @@ class FormPage extends Component{
   handleInput(e){
     let value = e.target.value;
     let name = e.target.name;
-    this.setState(prevState => ({newUser: {...prevState.newUser, [name]:value}
-    }),() => console.log(this.state.newUser));
+    this.setState(prevState => ({newUser:{...prevState.newUser,[name]:value}
+    }));
   }
+
   render(){
     return(
       <div className='container'>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <div className='row'>
             <div className='col-sm-8'>
-              <Input type={'text'} title={'Your Email:'} name={'email'} value={this.state.newUser.email} placeholder={'Enter your Email Address'} handleChange={this.handleInput}/>
+
+              <Input type={'text'} title={'Your Email:'} name={'email'} value={this.state.newUser.email} placeholder={'Enter your Email Address'} handleChange={this.handleInput} />
 
               <Input type={'text'} title={"Dog's Name:"} name={'dogsName'} value={this.state.newUser.dogsName} placeholder={"Enter your dog's name"} handleChange={this.handleInput} />
 
-              <Input type={'number'} title={'What Age is this dog:'} name={'age'} value={this.state.newUser.age} placeholder={"Enter dog's age"} handleChange={this.handleInput} />
+              <Input type={'number'} title={'What age is this dog:'} name={'age'} value={this.state.newUser.age} placeholder={"Enter dog's age"} handleChange={this.handleInput} />
 
               <div className='form-group'>
-                <label className='form-control-label'>What is the Weight of this dog:</label>
+                <label className='form-control-label'>What is the weight of this dog:</label>
                 <div className='input-group'>
-                  <input type='number' className='form-control' value={this.state.newUser.weight} placeholder="Enter dog's weight" aria-label='Dogs Weight' aira-describeby='basic' onChange={this.handleInput} />
+                  <input type='number' className='form-control' name='weight' value={this.state.newUser.weight} placeholder={"Enter dog's weight"} aria-label='Dogs Weight' aira-describeby='basic' onChange={this.handleInput} />
                   <div className='input-group-append'>
                     <span className='input-group-text' id='basic'>LBs</span>
                   </div>
                 </div>
               </div>
 
-              <Input type={'text'} title={'What Color is this dog:'} name={'color'} value={this.state.newUser.color} placeholder={"Enter the dog's color"} handleChange={this.handleInput} />
+              <Input type={'text'} title={'What color is this dog:'} name={'color'} value={this.state.newUser.color} placeholder={"Enter the dog's color"} handleChange={this.handleInput} />
 
-              <Select title={'Choose a State:'} name={'state'} options={this.state.stateOptions} placeholder={"Select a State"} value={this.state.newUser.state} handleChange={this.handleInput} />
+              <Select title={'Choose a state:'} name={'state'} options={this.state.stateOptions} placeholder={"Select a state"} value={this.state.newUser.state} handleChange={this.handleInput} />
 
-              <Select title={'Choose a Breed:'} name={'breed'} options={this.state.breedOptions} value={this.state.newUser.breed} placeholder={'Select a breed'} handleChange={this.handleInput} />
+              <Select title={'Choose a breed:'} name={'breed'} options={this.state.breedOptions} placeholder={'Select a breed'} value={this.state.newUser.breed} handleChange={this.handleInput} />
 
               <Select title={'Where does your dog go for relief/potty most of the time'} name={'bathroom'} options={['Inside a completely fenced yard or kennel', 'Underground electric dog containment system', 'Outside loose in unfenced yard', 'Permanently tied/tethered outside','On tie line for 1 hour or less at a time', 'Leash Walked']} value={this.state.newUser.bathroom} placeholder={"Please Choose..."} handleChange={this.handleInput} />
 
@@ -105,21 +158,16 @@ class FormPage extends Component{
 
               <Select title={'Is this dog in your home with the intent that he/she will be adopted:'} name={'adopted'} options={this.state.ynOptions} value={this.state.newUser.adopted} placeholder={'Please Choose...'} handleChange={this.handleInput} />
 
-              <Link to={{
-                  pathname:'/Rater',
-                  component:{Rater}
-                }}>
-                <Button>Try</Button>
+              <Link to='/Rater'>
+                <Button type='primary' title='Continue'></Button>
               </Link>
 
             </div>
           </div>
-
         </form>
       </div>
-
     );
   }
-}
+};
 
 export default FormPage;
