@@ -29,6 +29,7 @@ class FormPage extends Component{
         dogsInHome:'',
         adopted:'',
         deployed:'',
+        animalInjury:'',
         animalServices:'',
         humanInjury:'',
         dogParks:'',
@@ -37,7 +38,8 @@ class FormPage extends Component{
         reproductive:'',
         gender:'',
         vaccinations:'',
-        veterinarian:''
+        veterinarian:'',
+        work:''
       },
       stateOptions:States,
       breedOptions:Breeds,
@@ -72,7 +74,7 @@ class FormPage extends Component{
       animalInjury:this.state.newUser.animalInjury,
       humanInjury:this.state.newUser.humanInjury,
       dogParks:this.state.newUser.dogParks,
-      itegral:this.state.newUser.itegral,
+      integral:this.state.newUser.integral,
       training:this.state.newUser.training,
       reproductive:this.state.newUser.reproductive,
       gender:this.state.newUser.gender,
@@ -94,7 +96,10 @@ class FormPage extends Component{
       <div className='container'>
         <form>
           <div className='row'>
-            <div className='col-sm-8'>
+
+            <div className='col-sm-3'></div>
+
+            <div className='col-sm-9'>
 
               <Input type={'text'} title={'Your Email:'} name={'email'} value={this.state.newUser.email} placeholder={'Enter your Email Address'} handleChange={this.handleInput} />
 
@@ -136,7 +141,7 @@ class FormPage extends Component{
 
               <Select title={'Is this dog current on licenses, vaccinations and other such requirements in your area:'} name={'vaccinations'} options={this.state.ynOptions} value={this.state.newUser.vaccinations} placeholder={'Please Choose...'} handleChange={this.handleInput} />
 
-              <Select title={'Gender'} name={'gender'} options={['Male', 'Female']} value={this.state.newUser.gender} placeholder={'Please Choose...'} handleChange={this.handleInput} />
+              <Select title={'Gender:'} name={'gender'} options={['Male', 'Female']} value={this.state.newUser.gender} placeholder={'Please Choose...'} handleChange={this.handleInput} />
 
               <Select title={'Reproductive Status:'} name={'reproductive'} options={['Intact', 'Neutered - Male', 'Spayed - Female']} value={this.state.newUser.reproductive} placeholder={'Please Choose'} handleChange={this.handleInput} />
 
@@ -158,8 +163,8 @@ class FormPage extends Component{
 
               <Select title={'Is this dog in your home with the intent that he/she will be adopted:'} name={'adopted'} options={this.state.ynOptions} value={this.state.newUser.adopted} placeholder={'Please Choose...'} handleChange={this.handleInput} />
 
-              <Link to='/Rater'>
-                <Button type='primary' title='Continue'></Button>
+              <Link to='/Rater' onClick={this.handleSubmit}>
+                <Button type={'primary'} title={'Continue'}></Button>
               </Link>
 
             </div>
