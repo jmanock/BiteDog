@@ -5,7 +5,7 @@ import Select from '../FormComponents/Select';
 import Button from '../FormComponents/Button';
 import States from '../Containers/States';
 import Breeds from '../Containers/Breeds';
-import firebase from '../Firebase/Firebase';
+
 
 class FormPage extends Component{
   constructor(props){
@@ -46,42 +46,7 @@ class FormPage extends Component{
       ynOptions:['Yes', 'No']
     }
 
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
-  }
-
-  handleSubmit(e){
-    e.preventDefault();
-    const itemsRef = firebase.database().ref('NewUser');
-    const questions = {
-      email:this.state.newUser.email,
-      dogsName:this.state.newUser.dogsName,
-      age:this.state.newUser.age,
-      weight:this.state.newUser.weight,
-      color:this.state.newUser.color,
-      bathroom:this.state.newUser.bathroom,
-      breed:this.state.newUser.breed,
-      state:this.state.newUser.state,
-      children:this.state.newUser.children,
-      abuse:this.state.newUser.abuse,
-      doesBreed:this.state.newUser.doesBreed,
-      area:this.state.newUser.area,
-      sleep:this.state.newUser.sleep,
-      dogsInHome:this.state.newUser.dogsInHome,
-      adopted:this.state.newUser.adopted,
-      deployed:this.state.newUser.deployed,
-      animalServices:this.state.newUser.animalServices,
-      animalInjury:this.state.newUser.animalInjury,
-      humanInjury:this.state.newUser.humanInjury,
-      dogParks:this.state.newUser.dogParks,
-      integral:this.state.newUser.integral,
-      training:this.state.newUser.training,
-      reproductive:this.state.newUser.reproductive,
-      gender:this.state.newUser.gender,
-      vaccinations:this.state.newUser.vaccinations,
-      veterinarian:this.state.newUser.veterinarian
-    }
-    itemsRef.push(questions);
   }
 
   handleInput(e){
@@ -163,7 +128,7 @@ class FormPage extends Component{
 
               <Select title={'Is this dog in your home with the intent that he/she will be adopted:'} name={'adopted'} options={this.state.ynOptions} value={this.state.newUser.adopted} placeholder={'Please Choose...'} handleChange={this.handleInput} />
 
-              <Link to='/Rater' onClick={this.handleSubmit}>
+              <Link to={'/Rater'}>
                 <Button type={'primary'} title={'Continue'}></Button>
               </Link>
 
